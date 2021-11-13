@@ -1,0 +1,131 @@
+{
+    "id": 4,
+    "owner": {
+        "id": 3,
+        "user_title": null,
+        "first_name": "ScienceDesk",
+        "last_name": "GmbH",
+        "is_institutional": false,
+        "full": false,
+        "username": "user01"
+    },
+    "creator": {
+        "id": 3,
+        "user_title": null,
+        "first_name": "ScienceDesk",
+        "last_name": "GmbH",
+        "is_institutional": false,
+        "full": false,
+        "username": "user01"
+    },
+    "type": "processing",
+    "name": "MSA data aggregation",
+    "description": "Parse VAMAS file (VAMAS Surface Chemical Analysis Standard Data Transfer Format 1988 May 4).\nIt decomposes the input file to several files with simple text format  and tab-separated values.",
+    "language": "python3",
+    "published": false,
+    "gpu": false,
+    "jInfo": {},
+    "created_at": "2021-11-09T17:14:27.617498Z",
+    "edited_at": "2021-11-09T17:14:27.752434Z",
+    "deleted_at": null,
+    "version": 0,
+    "protected": false,
+    "developer_uid": "",
+    "uid": "29ec592450604d10a024000551c416a2",
+    "jInputCustomForm": {
+        "id": null,
+        "form": {
+            "fields": [
+                {
+                    "id": 0.12994321158723876,
+                    "key": "h171",
+                    "type": "h1",
+                    "className": "formlytemplate__h1",
+                    "templateOptions": {
+                        "label": "Input parameters",
+                        "iconUrl": "assets/svg/lb_title.svg",
+                        "editMode": true,
+                        "readonly": true,
+                        "required": false,
+                        "placeholder": "Add a Title",
+                        "templateTitle": "Title"
+                    }
+                },
+                {
+                    "id": 0.14485984138423613,
+                    "key": "photon_energy",
+                    "type": "lbInput",
+                    "className": "formlytemplate_textHalf",
+                    "templateOptions": {
+                        "unit": "eV",
+                        "focus": false,
+                        "label": "Photon Energy",
+                        "iconUrl": "assets/svg/lb_textinput.svg",
+                        "options": [
+                            {
+                                "name": "1486.6",
+                                "value": "1486.6"
+                            },
+                            {
+                                "name": "1246.9",
+                                "value": "1246.9"
+                            }
+                        ],
+                        "disabled": false,
+                        "editMode": true,
+                        "readonly": true,
+                        "required": false,
+                        "inputWidth": "medium",
+                        "placeholder": "",
+                        "templateTitle": "Medium text box"
+                    }
+                },
+                {
+                    "id": 0.10948060577018914,
+                    "key": "reference_peaks",
+                    "type": "lbTextarea",
+                    "className": "formlytemplate_textDescription",
+                    "templateOptions": {
+                        "focus": false,
+                        "label": "Reference Peaks",
+                        "iconUrl": "assets/svg/ic_keyboard_48px.svg",
+                        "disabled": false,
+                        "editMode": true,
+                        "readonly": true,
+                        "required": false,
+                        "placeholder": "",
+                        "templateTitle": "Text area"
+                    }
+                }
+            ]
+        },
+        "name": "New Template",
+        "owner": null,
+        "user_default": false
+    },
+    "jInputFormData": {
+        "lbtextarea74": "281.5\n284.8\n286.0\n288.5",
+        "photon_energy": "1486.6",
+        "reference_peaks": "281.5\n284.8\n286.0\n288.5\n"
+    },
+    "jOutputCustomForm": {},
+    "jOutputFormData": {},
+    "hash": "1458376ce2eaf3f94bea4e7e9a5e6e32",
+    "hash_alg": "md5",
+    "code_digest": null,
+    "run_revision_counter": 0,
+    "rerun_file_created_after": null,
+    "default_input_file_types": null,
+    "visible": true,
+    "star": 0,
+    "input_type": "tabular",
+    "functionality": "transform",
+    "num_downloads": 0,
+    "platform": "Python3/Science",
+    "availability": "Open code",
+    "internet_link": "https://github.com/sdeskprojs/HYSUCAP-XPS-data-aggregation",
+    "input_entity": null,
+    "min_number_input": 1,
+    "max_number_input": 1,
+    "collectionsMK": []
+}
