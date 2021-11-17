@@ -6,12 +6,13 @@ Support = upserverlib.Support
 
 
 class SdeskInputFile(upserverlib.InputFile):
-    """" Input class with methods to interact with Sdesk data manager """
+    """ " Input class with methods to interact with Sdesk data manager"""
+
     def __init__(self, data, process):
         super().__init__(data)
         self.process = process
         self.subject = None
-        file_subject = self.properties.get('subject', None)
+        file_subject = self.properties.get("subject", None)
         if file_subject:
             self.subject = SdeskInputSubject(file_subject, self.process)
 
@@ -21,23 +22,27 @@ class SdeskInputFile(upserverlib.InputFile):
 
 
 class SdeskInputSubject(upserverlib.InputSubject):
-    """" Input class with methods to interact with Sdesk data manager """
+    """ " Input class with methods to interact with Sdesk data manager"""
+
     def __init__(self, data, process):
         super().__init__(data)
         self.process = process
 
     def save_custom_properties(self):
-        output = self.process.get_or_create_output_subject_update(self, fields=["custom_properties"])
+        output = self.process.get_or_create_output_subject_update(
+            self, fields=["custom_properties"]
+        )
         output.custom_properties.update(self.custom_properties)
 
-    def save_as_aggregated_data(self, input_path, name='aggregated_data'):
-        output = self.process.get_or_create_output_subject_update(self, fields=["aggregated_data"])
+    def save_as_aggregated_data(self, input_path, name="aggregated_data"):
+        output = self.process.get_or_create_output_subject_update(
+            self, fields=["aggregated_data"]
+        )
         copyfile(input_path, output.aggregated_data.path)
 
 
-
 class InputItems:
-    def __init__(self, data_class,  process = None):
+    def __init__(self, data_class, process=None):
         self._data_class = data_class
         self._file_items = []
         self.process = process
@@ -50,9 +55,7 @@ class InputItems:
         return self._file_items[index]
 
 
-
 class Process(upserverlib.Process):
-
     def _get_input_files(self):
         i = InputItems(process=self, data_class=SdeskInputFile)
 
@@ -63,9 +66,8 @@ class Process(upserverlib.Process):
                     i.add_item(x)
             return i
 
-
     def _get_input_subjects(self):
-        i =  InputItems(process=self, data_class=SdeskInputSubject)
+        i = InputItems(process=self, data_class=SdeskInputSubject)
 
         with open(upserverlib.INPUT_FILESYSTEM) as fp:
             rv = json.load(fp)
@@ -73,8 +75,6 @@ class Process(upserverlib.Process):
                 if x["type"] == "subject":
                     i.add_item(x)
             return i
-
-
 
 
 def json_to_text(json_data):
@@ -105,7 +105,7 @@ def force_str(object):
 
 
 def write_tsv_file(file_path, columns, data, pre_header=""):
-    """ Create tab separated value file from data rows. """
+    """Create tab separated value file from data rows."""
     with open(file_path, "w") as fp:
         fileposition = 0
         if pre_header:
